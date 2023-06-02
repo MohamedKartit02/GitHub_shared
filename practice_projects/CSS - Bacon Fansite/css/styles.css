@@ -1,0 +1,28 @@
+h1 {
+  color: red;
+  font-size: 200px;
+}
+img {
+  background-color: red;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.bacon {
+  background-color: green;
+}
+
+.broccoli:hover,
+.bacon:hover {
+  animation: spin 1s infinite linear;
+  background-color: gold;
+}
+#heading {
+  color: blue;
+}
+.circulair {
+  border-radius: 100%;
+}
