@@ -8,6 +8,7 @@ const buttons = document.querySelectorAll(
 let operand1 = "";
 let operator = "";
 let operand2 = "";
+buffer = "0";
 
 // Add event listeners to the buttons
 buttons.forEach(function (button) {
@@ -36,11 +37,21 @@ buttons.forEach(function (button) {
 // Function to handle number button clicks
 function handleNumberClick(number) {
   if (operator === "") {
-    operand1 += number;
-    resultPara.innerText = operand1;
+    if (number === "0") {
+      operand1 = buffer;
+      resultPara.innerText = "0";
+    } else {
+      operand1 += number;
+      resultPara.innerText = operand1;
+    }
   } else {
-    operand2 += number;
-    resultPara.innerText = operand2;
+    if (number === "0") {
+      operand2 = number;
+      resultPara.innerText = "0";
+    } else {
+      operand2 += number;
+      resultPara.innerText = operand2;
+    }
   }
 }
 
@@ -82,10 +93,18 @@ function clearCalculator() {
 // Function to go back one step
 function goBack() {
   if (operator === "") {
-    operand1 = operand1.slice(0, -1);
-    resultPara.innerText = operand1;
+    if (operand1.length === 1) {
+      resultPara.innerText = buffer;
+    } else {
+      operand1 = operand1.slice(0, -1);
+      resultPara.innerText = operand1;
+    }
   } else {
-    operand2 = operand2.slice(0, -1);
-    resultPara.innerText = operand2;
+    if (operand2.length === 1) {
+      resultPara.innerText = buffer;
+    } else {
+      operand2 = operand2.slice(0, -1);
+      resultPara.innerText = operand2;
+    }
   }
 }
