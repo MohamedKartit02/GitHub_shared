@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+}
+.body {
+  width: 30%;
+}
+button {
+  width: 23%;
+  aspect-ratio: 1;
+  font-size: 30px;
+  background-color: rgb(228, 228, 228);
+}
+button:hover {
+  background-color: rgba(228, 228, 228, 0.5);
+}
+button:active {
+  background-color: rgba(150, 150, 150, 0.5);
+}
+.Obutton {
+  background-color: rgb(255, 123, 0);
+  color: white;
+}
+.Obutton:hover {
+  background-color: rgba(255, 123, 0, 0.5);
+}
+.Obutton:active {
+  background-color: rgb(218, 108, 5);
+}
+.Cbutton {
+  width: 46%;
+  aspect-ratio: 2;
+}
+.zero-button {
+  width: 69%;
+  aspect-ratio: 3;
+}
+
+.result-screen {
+  background-color: black;
+  color: white;
+  grid-area: RScreen;
+  width: 92%;
+  aspect-ratio: 5;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding: 0px;
+}
+.result-para {
+  font-family: monospace;
+  font-size: 30px;
+  margin: 0.7rem 0.5rem;
+}
+.the-first-buttons {
+  grid-area: Frow;
+  display: flex;
+  align-items: center;
+}
+.the-second-buttons {
+  grid-area: Srow;
+  display: flex;
+  align-items: center;
+}
+.the-third-buttons {
+  grid-area: Trow;
+  display: flex;
+  align-items: center;
+}
+.the-fourth-buttons {
+  grid-area: Frrow;
+  display: flex;
+  align-items: center;
+}
+.the-fifth-buttons {
+  grid-area: Firow;
+  display: flex;
+  align-items: center;
+}
+.body {
+  display: grid;
+  grid-template-areas:
+    "RScreen"
+    "Frow"
+    "Srow"
+    "Trow"
+    "Frrow"
+    "Firow";
+}
