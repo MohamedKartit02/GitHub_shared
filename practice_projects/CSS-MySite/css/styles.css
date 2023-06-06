@@ -1,3 +1,27 @@
 body {
+  margin: 0;
+}
+h1 {
+  margin: 0;
+}
+.top-countainer {
+  background-color: #f5f0bb;
+  width: 200px;
+  height: 200px;
+  border: 10px solid black;
+  padding: 20px;
+}
+.middle-countainer {
+  background-color: red;
+  width: 200px;
+  height: 200px;
+  border: 20px solid black;
+  margin-left: 260px;
+}
+.bottom-countainer {
   background-color: blue;
+  width: 200px;
+  height: 200px;
+  border: 10px solid black;
+  margin-left: 500px;
 }
