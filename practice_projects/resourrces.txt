@@ -1,3 +1,7 @@
 colorhunt.co --> to get beautiful colors for your designe
 emojipedia.org --> this to get emojis 
 favicon.cc --> this is to create yout own favcon
+fonts.google.com --> to get free fonts for your website
+loremipsum.io --> to generate paragraphs
+flaticon.com --> to get icons and images
+giphy.com --> to get gif images
