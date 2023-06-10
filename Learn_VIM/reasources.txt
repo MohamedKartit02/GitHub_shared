@@ -1,0 +1,3 @@
+The course link >> https://theprimeagen.github.io/vim-fundamentals/intro
+to play more with VIM you can type vimtutor in the terminal and you can follow the steps.
+
