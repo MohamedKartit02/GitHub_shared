@@ -1,10 +1,10 @@
 #!/bin/bash
 
 compile_function(){
-	FILENAME=$(echo $FILENAME | tr '[:upper:]' '[:lower:]')
+	FILENAMELOW=$(echo $FILENAME | tr '[:upper:]' '[:lower:]')
 	if echo "$FILENAME" | grep -q '\.c$'; then
 	    echo "The file name ends with .c. Let's start compiling."
-	    gcc -o "$(echo "$FILENAME" | cut -d '.' -f1)" "$FILENAME"
+	    gcc -o "$(echo "$FILENAMELOW" | cut -d '.' -f1)" "$FILENAME"
 	    echo "Done."
 	else
 	    echo "That's not a C file!"
