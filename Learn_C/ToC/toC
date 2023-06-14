@@ -1,4 +1,20 @@
 #!/bin/bash
-read FILENAME
-$FILENAME = sed 's/[A-Z]/[a-z]/g' $FILENAME ; cut -d '.' -f1 $FILENAME
-echo $FILENAME
+
+compile_function(){
+	if echo "$FILENAME" | grep -q '\.c$'; then
+	    echo "The file name ends with .c. Let's start compiling."
+	    gcc -o "$(echo "$FILENAME" | cut -d '.' -f1)" "$FILENAME"
+	    echo "Done."
+	else
+	    echo "That's not a C file!"
+	fi
+}
+
+if [ $# -gt 0 ]; then
+	FILENAME=$1
+	compile_function
+else
+	echo -n "Write the name of the file you want to compile /> "
+	read FILENAME
+	compile_function
+fi
