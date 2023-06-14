@@ -1,0 +1,8 @@
+#!/bin/bash
+echo `date +'%F %T'` $* >> `date +%F`.log
+
+# $1 $2 $3 positional arguments 
+# $* $@ all arguments 
+# 
+# chmod +x YOURFILE
+# ./YOURFILE message goes here

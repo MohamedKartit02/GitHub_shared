@@ -1,0 +1,9 @@
+anothefile.txt
+countsomthing.txt
+file.txt
+fmmn-master
+hello.txt
+list.txt
+lsHelp.txt
+testfile.txt
+usingwcCommand.txt

@@ -1,0 +1,2 @@
+      3      21      98
+this data has been added using this command wc 1> filename

@@ -1,0 +1,2 @@
+#!/bin/bash
+ls -1 | while read LINE; do echo -n "$LINE "; wc -l $LINE | awk '{print $1}'; done
