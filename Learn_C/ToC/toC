@@ -1,0 +1,4 @@
+#!/bin/bash
+read FILENAME
+$FILENAME = sed 's/[A-Z]/[a-z]/g' $FILENAME ; cut -d '.' -f1 $FILENAME
+echo $FILENAME
