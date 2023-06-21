@@ -1,0 +1,14 @@
+#!/bin/bash
+
+working_dir=$(pwd)
+if [ -f "README.md" ]; then
+	echo "Yeeey README.md exists in here now working starts...";
+	for file in *; do
+		if [[ "$file" != "README.md" ]]; then
+			echo "adding >>: - [$file](./$file)";
+			echo "- [$file](./$file)" >> README.md
+		fi
+	done
+else
+	echo "There is no README.md file here \"$working_dir\" try another folder"
+fi

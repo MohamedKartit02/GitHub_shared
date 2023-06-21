@@ -1,8 +1,0 @@
-#!/bin/bash
-if [ -e RREADME.md]; then
-  ls -1 . | sort -n | sed 's//
-else
-  echo "The file `something` does not exist."
-fi
-
-
