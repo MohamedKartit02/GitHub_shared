@@ -1,0 +1,53 @@
+#!/bin/bash
+#
+#
+# Usage: ./makeMdLinks <file_extension>
+#
+#to use multiple extenctions use this >>
+#for arg in "js" "html" "c"; do ./makeMdLinks "$arg"; done
+
+# Working directory
+working_dir=$(pwd)
+
+# File extension provided as command-line argument
+filestype=$1
+
+# Function to create links for files in README.md
+doing_job() {
+    find . -maxdepth 1 -type f -name "*.$filestype" -print0 | sort -z |
+    while IFS= read -r -d '' file; do
+        if [[ "$file" != "README.md" ]]; then
+            echo "Adding link: - [$file](./$file)"
+            echo "- [$file](./$file)" >> README.md
+        fi
+    done
+}
+
+# Function to check if a file extension argument is provided
+isThereArg() {
+    if [ -n "$filestype" ]; then
+        doing_job
+    else
+        echo "No file extension provided."
+    fi
+}
+
+# Check if README.md exists
+if [ -f "README.md" ]; then
+    echo "Yay! README.md exists in this directory. Starting work..."
+    isThereArg
+else
+    # If README.md doesn't exist, ask to create one
+    echo "There is no README.md file here \"$working_dir\". Try another folder."
+    echo -n "Do you want me to create one? (y/n): "
+    read CHOICE
+    if [ "$CHOICE" = "y" ]; then
+        # Start creating README.md
+        echo "--> Let's create README.md"
+        touch README.md
+        isThereArg
+    else
+        # Abort
+        echo "Okay, no file created."
+    fi
+fi
