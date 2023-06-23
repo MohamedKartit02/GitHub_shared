@@ -1,5 +1,9 @@
 #!/bin/bash
+#
 # Usage: ./makeMdLinks <file_extension>
+#
+# to use multiple extenctions use this >>
+# for arg in "js" "html" "c"; do ./makeMdLinks "$arg"; done
 
 # Working directory
 working_dir=$(pwd)
@@ -9,7 +13,7 @@ filestype=$1
 
 # Function to create links for files in README.md
 doing_job() {
-    for file in $(find . -type f -name "*.$filestype"); do
+    for file in $(find . -type f -name "*.$filestype" | sort -n); do
         if [[ "$file" != "README.md" ]]; then
             filename=$(basename "$file")
             echo "Adding link: - [$filename](./$filename)"
@@ -18,13 +22,24 @@ doing_job() {
     done
 }
 
+# Function to create links for all files in README.md
+doing_job_all_files() {
+    for file in $(find . -type f | sort -n); do
+        if [[ "$file" != "README.md" ]]; then
+            filename=$(basename "$file")
+            echo "Adding link: - [$filename](./$filename)"
+            echo "- [$filename](./$filename)" >> README.md
+        fi
+    done
+}
 
 # Function to check if a file extension argument is provided
 isThereArg() {
     if [ -n "$filestype" ]; then
         doing_job
     else
-        echo "No file extension provided."
+        echo "No file extension provided. Adding links for all files..."
+        doing_job_all_files
     fi
 }
 

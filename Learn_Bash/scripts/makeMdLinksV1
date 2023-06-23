@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Working directory
+working_dir=$(pwd)
+
+# This function changes files to links for the readme file in GitHub
+doing_job() {
+    for file in *; do
+        if [[ "$file" != "README.md" ]]; then
+            echo "adding >>: - [$file](./$file)"
+            echo "- [$file](./$file)" >>README.md
+        fi
+    done
+}
+
+# Check if README.md exists
+if [ -f "README.md" ]; then
+    echo "Yeeey README.md exists in here now working starts..."
+    doing_job
+else
+    # If it does not exist, ask whether to create one or not
+    echo "There is no README.md file here \"$working_dir\" try another folder"
+    echo -n "Do you want me to create one? (y/n): "
+    read CHOICE
+    if [ "$CHOICE" = "y" ]; then
+        # Start creating
+        echo "--> Let's create this README.md file"
+        touch README.md
+        doing_job
+    else
+        # Abort
+        echo "Okay, sure. No file for you"
+    fi
+fi
+
